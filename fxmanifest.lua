@@ -3,11 +3,11 @@ fx_version 'cerulean'
 game 'gta5'
 
 author 'AliOG1337'
-description 'Ein professionelles ESX-Script, das schlafende Peds für offline Spieler erstellt'
+description 'A system for creating sleeping peds'
 version '1.0.0'
 
 shared_scripts {
-    '@es_extended/imports.lua',
+    '@ox_lib/init.lua',
     'config.lua'
 }
 
@@ -21,6 +21,6 @@ server_scripts {
 }
 
 dependencies {
-    'es_extended',
+    'ox_lib',
     'oxmysql'
 }

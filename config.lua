@@ -1,64 +1,64 @@
 Config = {}
 
--- Grundeinstellungen
-Config.Debug = false -- Debug-Nachrichten aktivieren/deaktivieren
+-- Basic Settings
+Config.Debug = false -- Enable/disable debug messages
 Config.Locale = 'de' -- (de/en)
 
--- Ped Einstellungen
-Config.PedTimeout = 15 -- Zeit in Minuten, nach der ein schlafender Ped entfernt wird
-Config.PedCheckInterval = 1 -- Intervall in Minuten, in dem nach alten Peds gesucht wird
-Config.PedOffset = -1.0 -- Z-Offset für die Ped-Position (Höhe über dem Boden)
+-- Ped Settings
+Config.PedTimeout = 15 -- Time in minutes after which a sleeping ped is removed
+Config.PedCheckInterval = 1 -- Interval in minutes to check for old peds
+Config.PedOffset = -1.0 -- Z-offset for the ped position (height above the ground)
 
--- Text Einstellungen
+-- Text Settings
 Config.TextSettings = {
-    Font = 4, -- Font ID für den 3D Text
-    Scale = 0.55, -- Basis-Skalierung des 3D Texts
-    Color = {r = 255, g = 255, b = 255, a = 255}, -- Textfarbe (RGB + Alpha)
-    DrawDistance = 15.0, -- Maximale Entfernung, ab der der Text angezeigt wird
+    Font = 4, -- Font ID for the 3D text
+    Scale = 0.55, -- Base scaling of the 3D text
+    Color = {r = 255, g = 255, b = 255, a = 255}, -- Text color (RGB + Alpha)
+    DrawDistance = 15.0, -- Maximum distance at which the text is displayed
 }
 
--- Animation Einstellungen
+-- Animation Settings
 Config.Animation = {
-    Dict = "timetable@tracy@sleep@", -- Animations-Dictionary
-    Name = "idle_c", -- Animations-Name
-    Flag = 1, -- Animations-Flag
-    BlendIn = 8.0, -- Übergangsgeschwindigkeit in die Animation
-    BlendOut = -8.0, -- Übergangsgeschwindigkeit aus der Animation
+    Dict = "timetable@tracy@sleep@", -- Animation dictionary
+    Name = "idle_c", -- Animation name
+    Flag = 1, -- Animation flag
+    BlendIn = 8.0, -- Transition speed into the animation
+    BlendOut = -8.0, -- Transition speed out of the animation
 }
 
--- Namensanzeige Einstellungen
+-- Name Display Settings
 Config.NameDisplay = {
-    Enabled = true, -- Namensanzeige aktivieren/deaktivieren
-    MaskLastname = true, -- Nachnamen maskieren (z.B. "Mustermann" wird zu "Mu*******")
-    MaskLength = 2, -- Anzahl der sichtbaren Buchstaben beim maskierten Nachnamen
-    Format = "~y~Spieler Schläft\n~w~Name: %s" -- Format der Namensanzeige (%s wird durch den Namen ersetzt)
+    Enabled = true, -- Enable/disable name display
+    MaskLastname = true, -- Mask last name (e.g., "Mustermann" becomes "Mu*******")
+    MaskLength = 2, -- Number of visible characters for the masked last name
+    Format = "~y~Player Sleeping\n~w~Name: %s" -- Format of the name display (%s is replaced with the name)
 }
 
--- MySQL Einstellungen
+-- MySQL Settings
 Config.MySQL = {
     Tables = {
-        Users = "users", -- Name der Users-Tabelle
+        Users = "users", -- Name of the users table
         Fields = {
-            Identifier = "identifier", -- Spaltenname für die Spieler-ID
-            Skin = "skin", -- Spaltenname für die Skin-Daten
-            Firstname = "firstname", -- Spaltenname für den Vornamen
-            Lastname = "lastname" -- Spaltenname für den Nachnamen
+            Identifier = "identifier", -- Column name for the player ID
+            Skin = "skin", -- Column name for skin data
+            Firstname = "firstname", -- Column name for the first name
+            Lastname = "lastname" -- Column name for the last name
         }
     }
 }
 
--- Berechtigungen
+-- Permissions
 Config.Permissions = {
     FakeCommand = "admin",
     FakeCommandName = "fakesleep"
 }
 
--- Lokalisierung
+-- Localization
 Config.Locales = {
     ['de'] = {
-        ['sleeping'] = 'Spieler Schläft',
+        ['sleeping'] = 'Player Sleeping',
         ['name'] = 'Name: %s',
-        ['unknown'] = 'Unbekannt'
+        ['unknown'] = 'Unknown'
     },
     ['en'] = {
         ['sleeping'] = 'Player Sleeping',

@@ -1,9 +1,5 @@
-ESX = exports['es_extended']:getSharedObject()
-
-
 local activePeds = {}
 local activeNames = {}
-
 
 local function _U(str, ...)
     local text = Config.Locales[Config.Locale][str]
@@ -48,7 +44,6 @@ local function DrawText3D(x, y, z, text)
         DrawText(_x, _y)
     end
 end
-
 
 local function CreateSleepingPed(identifier, coords, heading, skin)
     Debug('Creating sleeping ped for %s at coords: %s, %s, %s', identifier, coords.x, coords.y, coords.z)
@@ -175,6 +170,7 @@ local function CreateSleepingPed(identifier, coords, heading, skin)
     Debug('Animation started')
     
     SetModelAsNoLongerNeeded(modelHash)
+    RemoveAnimDict(Config.Animation.Dict)
 end
 
 
@@ -222,10 +218,9 @@ AddEventHandler('ali_sleepoffline:removeSleepingPed', function(identifier)
     end
 end)
 
-
 AddEventHandler('playerSpawned', function()
     Debug('Player spawned, requesting sleeping peds data')
-    ESX.TriggerServerCallback('ali_sleepoffline:getSleepingPeds', function(sleepingPeds)
+    lib.callback('ali_sleepoffline:getSleepingPeds', false, function(sleepingPeds)
         Debug('Received %s sleeping peds', #sleepingPeds)
         for identifier, data in pairs(sleepingPeds) do
             CreateSleepingPed(identifier, data.coords, data.heading, data.skin)
